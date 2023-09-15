@@ -5,6 +5,7 @@ class Temperature extends StatelessWidget {
   Temperature({super.key, required this.tempAr, required this.humidAe});
   int tempAr;
   int humidAe;
+
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -16,7 +17,7 @@ class Temperature extends StatelessWidget {
         width: MediaQuery.of(context).size.width * 0.7,
         child: Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
           Media(
-            texto: "Humidade média\nAr %",
+            texto: "Umidade média\nAr %",
             temp: humidAe,
           ),
           Container(

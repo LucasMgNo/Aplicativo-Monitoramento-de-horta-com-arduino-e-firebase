@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+// ignore: depend_on_referenced_packages
 import 'package:firebase_database/firebase_database.dart';
 import 'package:jardim_app/models/data.dart';
 import 'package:jardim_app/widgets/bomba2.dart';
@@ -58,39 +59,44 @@ class _TelaPrincipalState extends State<TelaPrincipal> {
     return Scaffold(
       body: ListView(
         children: [
-          Container(
-            width: double.infinity,
-            color: Colors.green.shade50,
-            child: Column(
-              // ignore: prefer_const_literals_to_create_immutables
-              children: [
-                const SizedBox(height: 20),
-                Temperature(
-                  tempAr: tempAr,
-                  humidAe: humdAr,
-                ),
-                const SizedBox(
-                  height: 50,
-                ),
-                Cards(
-                  ambiente: "Coentro",
-                  temp: tempsolo1,
-                  humisolo: humsolo1,
-                ),
-                const SizedBox(
-                  height: 50,
-                ),
-                Cards(ambiente: "Alface", temp: tempsolo2, humisolo: humsolo2),
-                const SizedBox(
-                  height: 20,
-                ),
-                CardBomba(bomba2: bomba1, caminho: "/bomba"),
-                CardBomba(
-                  bomba2: bomba2,
-                  caminho: "/bomba2/",
-                )
-              ],
-            ),
+          Column(
+            // ignore: prefer_const_literals_to_create_immutables
+            children: [
+              const SizedBox(height: 20),
+              Temperature(
+                tempAr: tempAr,
+                humidAe: humdAr,
+              ),
+              const SizedBox(
+                height: 50,
+              ),
+              Cards(
+                umidadeautomatica: '/controlemanual/solo1/automatico',
+                caminhodb: '/controlemanual/solo1/umidade',
+                ambiente: "Coentro",
+                temp: tempsolo1,
+                humisolo: humsolo1,
+              ),
+              const SizedBox(
+                height: 50,
+              ),
+              Cards(
+                  umidadeautomatica: '/controlemanual/solo2/automatico',
+                  caminhodb: '/controlemanual/solo2/umidade',
+                  ambiente: "Alface",
+                  temp: tempsolo2,
+                  humisolo: humsolo2),
+              const SizedBox(
+                height: 20,
+              ),
+              CardBomba(
+                  nomebomba: "Bomba 1", bomba2: bomba1, caminho: "/bomba"),
+              CardBomba(
+                nomebomba: "bomba 2",
+                bomba2: bomba2,
+                caminho: "/bomba2/",
+              )
+            ],
           )
         ],
       ),

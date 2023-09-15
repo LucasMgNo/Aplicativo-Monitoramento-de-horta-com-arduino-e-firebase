@@ -2,9 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:firebase_database/firebase_database.dart';
 
 class CardBomba extends StatefulWidget {
-  CardBomba({super.key, required this.caminho, this.bomba2 = false});
+  CardBomba(
+      {super.key,
+      required this.caminho,
+      this.bomba2 = false,
+      required this.nomebomba});
   final String caminho;
   bool bomba2;
+  String nomebomba;
 
   @override
   State<CardBomba> createState() => _CardBombaState();
@@ -20,8 +25,8 @@ class _CardBombaState extends State<CardBomba> {
     final estadobomba = database.child(widget.caminho);
     return Column(
       children: [
-        const Text(
-          "Bomba 2",
+        Text(
+          widget.nomebomba,
           style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
         ),
         SizedBox(
